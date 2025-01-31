@@ -1,0 +1,32 @@
+@use "../core" as core;
+
+@font-face {
+  font-family: "assistant";
+  src: local("assistant"), url("/fonts/assistantLight.woff") format("woff");
+  font-display: swap;
+}
+
+body {
+  display: grid;
+  row-gap: 16px;
+  background: core.mycolorfunction(white, light55);
+  font-family: "assistant", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  color: core.mycolorfunction(black, dark25);
+}
+
+a {
+  color: core.mycolorfunction(green, dark15);
+  font-weight: 700;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1.75s;
+}

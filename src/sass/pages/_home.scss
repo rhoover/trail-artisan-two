@@ -1,0 +1,25 @@
+@use "../component-helpers" as components;
+
+.home {
+  @extend %artisan-home;
+  &-intro {
+    @extend %artisan-home-intro;
+    & p:nth-of-type(4) {
+      font-weight: 700;
+      font-size: var(--step-2);
+    }
+  }
+  &-content {
+    @extend %artisan-home-content;
+    grid-template-rows: repeat(6, 1fr);
+  }
+  &-item {
+    @extend %artisan-home-item;
+    &-image {
+      @extend %artisan-home-item-image;
+    }
+    &-text {
+      @extend %artisan-home-item-text;
+    }
+  }
+}

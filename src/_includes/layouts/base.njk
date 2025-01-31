@@ -1,0 +1,55 @@
+---
+eleventyComputed:
+  meta:
+    "@context": "https://schema.org"
+    "@type": "WebSite"
+    "name": "Vermont Artisans Trail"
+    "about": "A Comprehensive Mobile Reference of Vermont's Artisans and Their Communities"
+    "url": "https://vermontartisans.org{{ page.url }}"
+    "mainEntityOfPage": "https://vermontartisans.org/"
+    "screenshot": "https://vermontartisans.org/img/vermontartisans-screenshot.png"
+    "audience": "Lifestyle Tourism"
+    "inLanguage": "en-US"
+    "isAccessibleForFree": "true"
+    "datePublished": "{{ page.date | dateFormat }}"
+    "logo":
+      "@type": "ImageObject"
+      "url": "https://vermontartisans.org/img/trail-sign.png"
+    "publisher":
+      "@type": "Organization"
+      "@id": "https://vermontartisans.org/#publisher"
+      "name": "Moosedog Studios"
+      "description": "Creating Custom Web Sites and Web Apps: Made in Vermont"
+      "url": "https://moosedog.io"
+      "email": "robin@moosedog.io"
+      "logo":
+        "@type": "ImageObject"
+        "url": "https://vermontartisans.org/img/moosedog-logo.png"
+      "contactPoint":
+        "@type": "ContactPoint"
+        "@id": "https://vermontartisans.org/#contactpoint"
+        "name": "Robin Hoover"
+        "email": "robin@moosedog.io"
+        "telephone": "+18026962455"
+        "contactType": "Web Developer"
+---
+
+  {% include 'components/head-element.njk' %}
+
+  <body>
+    
+    {% include "components/header.njk" %}
+    {% include "components/nav.njk" %}
+
+    <main class="{{ page.fileSlug or 'home' }}" >
+
+      {{ content | safe }}
+
+    </main>
+
+      {% include "components/scroll-button.njk" %}
+      {% include "components/share-button.njk" %}
+
+      {% include "components/inlines.njk" %}
+      
+  </body>

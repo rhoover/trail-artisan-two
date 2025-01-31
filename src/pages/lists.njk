@@ -1,0 +1,84 @@
+---
+layout: "layouts/base.njk"
+pagination:
+  data: artisanTypesData
+  size: 1
+  alias: artisan
+permalink: "lists/vermont-{{ artisan.artisanType }}-list.html"
+eleventyComputed:
+  title: "Vermont {% nametotitle artisan.artisanType %} List"
+  meta:
+    "dateModified": "{% lastModifiedSchemaShortCode page.inputPath %}"
+---
+
+<section class="artisans-list-items">
+
+  {% include "components/search-box.njk" %}
+
+  {% if artisan.artisanType == 'brewers' %}
+
+    {% for brewer in brewers | sort(attribute='selector') %}
+      <a href="/brewers/{{ brewer.selector }}/" class="artisans-list-item">
+        <span class="artisans-list-item-logo {{brewer.selector}}"></span>
+        <p  class="artisans-list-item-name">{{ brewer.name }}</p>
+        <p class="artisans-list-item-city">{{ brewer.city }}</p>
+      </a>
+    {% endfor %}
+
+  {% endif %}
+
+  {% if artisan.artisanType == 'cheeses' %}
+
+    {% for cheese in cheeses | sort(attribute='selector') %}
+      <a href="/cheeses/{{ cheese.selector }}/" class="artisans-list-item">
+        <span class="artisans-list-item-logo {{cheese.selector}}"></span>
+        <p  class="artisans-list-item-name">{{ cheese.name }}</p>
+        <p class="artisans-list-item-city">{{ cheese.city }}</p>
+      </a>
+    {% endfor %}
+
+  {% endif %}
+
+  {% if artisan.artisanType == 'ciders' %}
+
+    {% for cider in ciders | sort(attribute='selector') %}
+      <a href="/ciders/{{ cider.selector }}/" class="artisans-list-item">
+        <span class="artisans-list-item-logo {{cider.selector}}"></span>
+        <p  class="artisans-list-item-name">{{ cider.name }}</p>
+        <p class="artisans-list-item-city">{{ cider.city }}</p>
+      </a>
+    {% endfor %}
+
+  {% endif %}
+
+  {% if artisan.artisanType == 'distillers' %}
+
+    {% for distiller in distillers | sort(attribute='selector') %}
+      <a href="/distillers/{{ distiller.selector }}/" class="artisans-list-item">
+        <span class="artisans-list-item-logo {{distiller.selector}}"></span>
+        <p  class="artisans-list-item-name">{{ distiller.name }}</p>
+        <p class="artisans-list-item-city">{{ distiller.city }}</p>
+      </a>
+    {% endfor %}
+
+  {% endif %}
+
+  {% if artisan.artisanType == 'wines' %}
+
+    {% for wine in wines | sort(attribute='selector') %}
+      <a href="/wines/{{ wine.selector }}/" class="artisans-list-item">
+        <span class="artisans-list-item-logo {{wine.selector}}"></span>
+        <p  class="artisans-list-item-name">{{ wine.name }}</p>
+        <p class="artisans-list-item-city">{{ wine.city }}</p>
+      </a>
+    {% endfor %}
+
+  {% endif %}
+
+  <div class="artisans-list-item-moosedog">
+    <div class="artisans-list-item-moosedog-logo moosedog"></div>
+    <p class="artisans-list-item-moosedog-promo">Vermont Artisan Trail is artisanally handcrafted in Stowe, Vermont by:</p>
+    <a class="artisans-list-item-moosedog-link" href="https://moosedog.io" target="_blank" ref="no-referrer">MooseDog Studios</a>
+  </div>
+
+</section>

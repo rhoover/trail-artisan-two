@@ -1,0 +1,84 @@
+@use "../component-helpers" as components;
+@use "../helpers" as helpers;
+@use "../core" as core;
+
+.artisans {
+  &-list {
+    row-gap: 24px;
+    &-items {
+      @extend %artisans-items;
+      @include helpers.tablet-breakpoint {
+        gap: 32px;
+      }
+    }
+    &-search {
+      @extend %search-section;
+      @include helpers.tablet-breakpoint {
+        align-self: center;
+        padding: 0px 0px;
+      }
+      &-label {
+        @extend %search-label;
+        top: -27px;
+      }
+      &-input {
+        @extend %inputs;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+            background: transparent;
+        }
+        &:active {
+          outline: none;
+        }
+      }
+      & svg {
+        @extend %search-svg;
+      }
+    }
+    &-item {
+      @extend %artisans-item;
+      &-logo {
+        @extend %artisans-item-logo;
+      }
+      &-name {
+        @extend %artisans-item-name;
+      }
+      &-city {
+        @extend %artisans-item-city;
+      }
+      &-moosedog {
+        @extend %artisans-item;
+        max-height: 160px;
+        border-radius: 8px;
+        border: 1px solid core.mycolorfunction(blue, base);
+        padding: 8px 0px;
+        background-color: core.mycolorfunction(white, light75);
+        &-logo {
+          grid-row: 1 / 3;
+          grid-column: 1 / 2;
+          justify-self: center;
+        }
+        &-promo {
+          grid-column: 2 / 3;
+          align-self: end;
+        }
+        &-link {
+          grid-column: 2 / 3;
+          align-self: start;
+        }
+      }
+    }
+  }
+}
+
+.selected {
+  opacity: 1;
+}
+.is-hidden {
+  display: none;
+}
+
+input[type="search" i]::-webkit-search-cancel-button {
+  @extend %cancel-search;
+}

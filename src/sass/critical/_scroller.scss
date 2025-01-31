@@ -1,0 +1,32 @@
+@use "../core" as core;
+@use "../helpers" as helpers;
+@use "../component-helpers" as components;
+
+// modifyong stuff in %side-button
+.scroller {
+  @extend %side-button;
+  display: block;
+  left: calc(100vw - 60px);
+  border-radius: 30% 0% 0% 30%;
+  border-right: none;
+  border-left: 1px solid core.mycolorfunction(blue, dark25);
+  opacity: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 14px;
+    left: 19px;
+    transform: rotate(45deg);
+    background: transparent;
+    border-top: 5px solid core.mycolorfunction(white, light35);
+    border-left: 5px solid core.mycolorfunction(white, light35);
+  }
+  &-visible {
+    opacity: 1;
+  }
+  & p {
+    left: 18px;
+  }
+}

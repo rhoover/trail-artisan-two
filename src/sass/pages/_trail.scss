@@ -1,0 +1,218 @@
+@use "../component-helpers" as components;
+@use "../helpers" as helpers;
+@use "../core" as core;
+@use 'sass:color';
+
+.trail {
+  row-gap: 24px;
+  &-tabs {
+    &-row {
+      @extend %tabs;
+    }
+    &-item {
+      @extend %tabs-item;
+      &:hover {
+        color: core.mycolorfunction(blue, dark25);
+        text-decoration: core.mycolorfunction(blue, dark25) underline;
+      }
+      &-active {
+        @extend %tabs-item-active;
+      }
+    }
+  
+  }
+  &-panel {
+    @extend %panel;
+    grid-template-rows: max-content;
+    &-list {
+      grid-template-rows: min-content 1fr;
+      row-gap: 24px;
+    }
+    &-chosen {
+      column-gap: 24px;
+    }
+    &-active {
+      @extend %panel-active;
+    }
+    &-notyet {
+      grid-row: 1 / 2;
+      justify-self: center;
+      @include helpers.tablet-breakpoint {
+        grid-column: 1 / 3;
+      }
+      & span {
+        text-align: center;
+        font-size: var(--step-0);
+      }
+    }
+  }
+  &-list-choose {
+    grid-column: 1 / 4;
+    @extend %choose-section;
+    &-button {
+      @extend %choose;
+      &:hover {
+        background-color: rgba(core.mycolorfunction(blue, base), 0.15);
+      }
+      &-active {
+        font-weight: 700;
+        background-color: rgba(core.mycolorfunction(blue, base), 0.15);
+      }
+    }
+  }
+  &-lists {
+    @extend %artisans-items;
+    grid-column: 1 / 4;
+  }
+  &-list-intro {
+    align-self: center;
+  }
+  &-list-item {
+    @extend %artisans-item;
+    @extend %animate-helper;
+    transition-property: transform, opacity;
+    align-self: flex-start;
+    &-logo {
+      @extend %artisans-item-logo;
+    }
+    &-name {
+      @extend %artisans-item-name;
+      font-size: var(--step-0);
+      // have to do this for this list because the item div contians the extra checkmark that the regular list does not
+      @include helpers.tablet-breakpoint {
+        font-size: 1.2rem;
+      }
+    }
+    &-city {
+      @extend %artisans-item-city;
+    }
+    &-moosedog {
+      display: grid;
+      max-height: 160px;
+      border-radius: 8px;
+      border: 1px solid core.mycolorfunction(green, base);
+      padding: 8px 0px;
+      background-color: core.mycolorfunction(white, light75);
+      &-logo {
+        grid-row: 1 / 3;
+        grid-column: 1 / 2;
+        justify-self: center;
+      }
+      &-promo {
+        grid-column: 2 / 3;
+        align-self: end;
+      }
+      &-link {
+        grid-column: 2 / 3;
+        align-self: start;
+      }
+    }
+    &-check {
+      grid-row: 1 / 3;
+      grid-column: 3 / 4;
+      justify-self: flex-end;
+      align-self: center;
+      opacity: 0;
+      font-size: calc(var(--step-2) * 3);
+      color: core.mycolorfunction(green, base);
+    }
+    &-remove {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+      align-self: center;
+      justify-self: end;
+      font-size: 2rem;
+      padding: 0px 8px;
+      color: color.adjust(core.mycolorfunction(red, base), $saturation: 40%);
+      border: 2px solid color.adjust(core.mycolorfunction(red, base), $saturation: 40%);
+      border-radius: 100%;
+      background-color: core.mycolorfunction(red, light85);
+    }
+    &-removed { //from DOM
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+  }
+  &-search {
+    @extend %search-section;
+    @include helpers.tablet-breakpoint {
+      margin: auto 0px;
+      padding: 0px 0px;
+    }
+    &-label {
+      @extend %search-label;
+      top: -12px;
+    }
+    &-input {
+      @extend %inputs;
+      cursor: pointer;
+      &:focus {
+          outline: none;
+          background: transparent;
+      }
+      &:active {
+        outline: none;
+      }
+    }
+    &-svg {
+      @extend %search-svg;
+    }
+  }
+}
+
+// makes sure google maps displays
+section[data-target="map-tab"] {
+  border-radius: 8px;
+  padding: 2px;
+  border: 1px solid core.mycolorfunction(blue, base);
+  height: 75vh;
+  grid-template-columns: 1fr;
+  & > .trail-panel-notyet {
+    padding: 0px 16px;
+  }
+}
+
+.artisan-map-infoslider {
+  display: grid;
+  grid-template-columns: .25fr .75fr;
+  column-gap: 8px;
+  justify-items: center;
+  font-size: var(--step-0);
+  padding: 8px 8px;
+  background-image: linear-gradient(rgba(core.mycolorfunction(white, base), 1.0), rgba(core.mycolorfunction(white, light25), 1.0));
+  &-image {
+    grid-column: 1 / 2;
+    & img {
+      width: 50px;
+    }
+  }
+  &-details {
+    grid-column: 2 / 3;
+    display: grid;
+    align-items: center;
+    color: core.mycolorfunction(black, base);
+  }
+  &-name {
+    font-weight: 700;
+  }
+  &-address {
+    font-size: calc(var(--step-0) * 0.75);
+  }
+  &-link {
+    padding-top: 12px;
+    outline: none;
+    color: core.mycolorfunction(blue, base);
+    cursor: pointer;
+  }
+}
+
+.selected {
+  opacity: 1;
+}
+.is-hidden {
+  display: none;
+}
+
+input[type="search" i]::-webkit-search-cancel-button {
+  @extend %cancel-search;
+}

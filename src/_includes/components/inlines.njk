@@ -1,0 +1,211 @@
+  {#########################################}
+  {# Back Button #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/backbutton.js" %}
+  {% endset %}
+  <!-- back button behavior -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>  
+  
+  {#########################################}
+  {# Menu Button #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/menubutton.js" %}
+  {% endset %}
+  <!-- menu button behavior -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+  
+  {#########################################}
+  {# Header Behavior #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/header.js" %}
+  {% endset %}
+  <!-- header behavior -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+  
+  {#########################################}
+  {# Nav Flyout #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/nav-list.js" %}
+  {% endset %}
+  <!-- nav flyout behavior -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+  
+  {#########################################}
+  {# Share Side Button #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/share-side-button.js" %}
+  {% endset %}
+  <!-- share button behavior -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+
+  {#########################################}
+  {# Scroll Button #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/scroll-top.js" %}
+  {% endset %}
+  <!-- scroll button behavior -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+
+  {#########################################}
+  {# List Page #}
+  {#########################################}
+  {% if page.fileSlug == 'lists' %}
+    <!-- search behavior for list -->
+    {% set js %}
+      {% include "../../js/inline/search-list.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+  
+  {#########################################}
+  {# Detail Page #}
+  {#########################################}
+  {% if (page.fileSlug == 'details') %}
+    <!-- local forage package-->
+    <script src="{{ '/js/packages/localforage.min.js' | url }}"></script>
+    <!-- local forage config -->
+    {% set js %}
+      {% include "../../js/inline/localForage-config.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+
+    <!-- detail page behavior -->
+    {% set js %}
+      {% include "../../js/inline/detail.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+    <!-- detail share-icon behavior -->
+    {% set js %}
+      {% include "../../js/inline/share-detail.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+
+  {#########################################}
+  {# Detail-Map Page #}
+  {#########################################}
+  {% if (page.fileSlug == 'map-detail') %}
+    <!-- map behavior -->
+    {% set js %}
+      {% include "../../js/inline/map-detail.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+    <!-- google maps herself must speak on the matter -->
+    <script async defer 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEBOmZu2tJSCVLk9CoPUQFU10EnFyBv9M&loading=async&callback=initMap">
+    </script>
+  {% endif %}
+
+  {#########################################}
+  {# Map-All Page #}
+  {#########################################}
+  {% if (page.fileSlug == 'map-all') %}
+    <!-- local forage package-->
+    <script src="{{ '/js/packages/localforage.min.js' | url }}"></script>
+    <!-- local forage config -->
+    {% set js %}
+      {% include "../../js/inline/localForage-config.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+    </script>
+    <!-- google maps herself must speak on the matter -->
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEBOmZu2tJSCVLk9CoPUQFU10EnFyBv9M&loading=async&callback=initMap">
+    </script>
+    <!-- choose-button behavior -->
+    {% set js %}
+      {% include "../../js/inline/map-all-buttons.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script> 
+    <!-- map and trail build behavior -->
+    {% set js %}
+      {% include "../../js/inline/map-all.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+
+  {#########################################}
+  {# Trail Page #}
+  {#########################################}
+  {% if (page.fileSlug == 'trail') %}
+    <!-- Google herself must speak on the matter -->
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEBOmZu2tJSCVLk9CoPUQFU10EnFyBv9M&loading=async&callback=initMap">
+    </script>
+    <!-- indexed DB solution for off-line storage of trail building -->
+    <script src="{{ '/js/packages/localforage.min.js' | url }}"></script>
+    <!-- local forage config -->
+    {% set js %}
+      {% include "../../js/inline/localForage-config.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+    <!-- several behaviors for trail -->
+    {% set js %}
+      {% include "../../js/inline/trail.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+
+    <!-- trail map init -->
+    {% set js %}
+      {% include "../../js/inline/map-trail.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+
+
+  {#########################################}
+  {# Map-Artisan Page #}
+  {#########################################}
+  {% if (page.fileSlug == 'map-artisan-type') %}
+      <!-- google maps herself must speak on the matter -->
+      <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEBOmZu2tJSCVLk9CoPUQFU10EnFyBv9M&loading=async&callback=initMap">
+      </script>
+      <!-- artisan map building -->
+      {%  set js %}
+        {% include "../../js/inline/map-artisan-type.js" %}
+      {% endset %}
+      <script>
+        {{ js | jsmin | safe }}
+      </script>
+    {% endif %}

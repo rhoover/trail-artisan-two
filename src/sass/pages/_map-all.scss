@@ -1,0 +1,161 @@
+@use "../component-helpers" as components;
+@use "../helpers" as helpers;
+@use "../core" as core;
+
+.map-all {
+  grid-template-rows: min-content 80vh;
+  row-gap: 16px;
+}
+
+.map-choose {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-rows: min-content;
+  grid-gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid core.mycolorfunction(blue, base);
+  &-button {
+    text-decoration: none;
+    color: inherit;
+    font-size: calc(var(--step-0) * 0.75);
+    background-color: core.mycolorfunction(white, light55);
+    height: 64px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid core.mycolorfunction(blue, dark25);
+    @extend %box-shadow;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(core.mycolorfunction(blue, base), 0.15);
+    }
+    &-active {
+      font-weight: 700;
+      background-color: rgba(core.mycolorfunction(blue, base), 0.15);
+    }
+    @include helpers.tablet-breakpoint {
+      font-size: var(--step-0);
+    }
+  }
+}
+
+.maps-artisans {
+  &-panel {
+    display: none;
+    height: 90%;
+    border: 1px solid core.mycolorfunction(blue, base);
+    border-radius: 8px;
+    padding: 2px;
+    position: relative;
+    &-active {
+      display: grid;
+      grid-template-columns: 0px auto;
+      transition-timing-function: cubic-bezier(0.350, 0.010, 0.430, 0.930);
+      transition: 500ms;
+    }
+    &-open {
+      grid-template-columns: 35% auto;
+      transition-timing-function: cubic-bezier(0.350, 0.010, 0.430, 0.930);
+      transition: 500ms;
+    }
+  }
+  &-list {
+    grid-column: 1 / 2;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-right: 1px solid core.mycolorfunction(blue, base);
+    background-color: core.mycolorfunction(white, light75);
+    overflow-y: auto;
+    &-item {
+      display: grid;
+      // grid-template-columns: .40fr .60fr;
+      grid-template-columns: 1fr;
+      // grid-template-rows: 1fr 1fr;
+      grid-template-rows: 50% 25% 25%;
+      align-items: center;
+      padding: 12px 8px 12px 0px;
+      border-bottom: 1px solid core.mycolorfunction(blue, base);
+      cursor: pointer;
+      &-logo {
+        // grid-column: 1/2;
+        // grid-row: 2/3;
+        grid-row: 1/2;
+        justify-self: start;
+        zoom: 0.35;
+        @include helpers.tablet-breakpoint {
+          zoom: 0.65;
+        }
+      }
+      &-name {
+        // grid-column: 1/3;
+        // grid-row: 1/2;
+        grid-row: 2/3;
+        // text-align: center;
+        align-self: self-end;
+        font-size: calc(var(--step-0) * 0.75);
+        font-weight: 700;
+      }
+      &-city {
+        // grid-column: 2/3;
+        // grid-row: 2/3;
+        grid-row: 3/4;
+        // text-align: center;
+        align-self: self-start;
+        font-size: calc(var(--step-0) * 0.75);
+      }
+    }
+  }
+  &-map {
+    display: none;
+    grid-column: 2 / 3;
+    &-active {
+      display: block;
+      height: 100%;
+    }
+  }
+}
+
+.artisan-map-infoslider {
+  display: grid;
+  grid-template-columns: .25fr 1fr;
+  column-gap: 8px;
+  justify-items: center;
+  font-size: var(--step-1);
+  padding: 8px 8px;
+  background-image: linear-gradient(rgba(core.mycolorfunction(white, base), 1.0), rgba(core.mycolorfunction(white, light25), 1.0));
+  border: 1px solid core.mycolorfunction(blue, base);
+  border-radius: 8px;
+  &-image {
+    grid-column: 1 / 2;
+    & img {
+      width: 50px;
+    }
+  }
+  &-details {
+    grid-column: 2 / 3;
+    row-gap: 12px;
+    display: grid;
+    align-items: center;
+    color: core.mycolorfunction(black, base);
+  }
+  &-name {
+    font-weight: 700;
+  }
+  &-address {
+    font-size: var(--step-1);
+  }
+  &-link {
+    outline: none;
+    color: core.mycolorfunction(blue, base);
+  }
+  &-button {
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid core.mycolorfunction(blue, base);
+    font-size: var(--step-1);
+    color: core.mycolorfunction(blue, base);
+    background-color: rgba(core.mycolorfunction(blue, base), 0.15);
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

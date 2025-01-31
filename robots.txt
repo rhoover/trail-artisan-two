@@ -1,0 +1,4 @@
+Sitemap: https://vermontartisans.org/sitemap.xml
+
+User-agent: *
+Disallow:

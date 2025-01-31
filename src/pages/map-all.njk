@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+permalink: "/maps/vermont-artisans-map.html"
+eleventyComputed:
+  title: "All The Artisans Located"
+  meta:
+    "dateModified": "{% lastModifiedSchemaShortCode page.inputPath %}"
+---
+
+<section class="map-choose">
+  <button class="map-choose-button" data-artisan="brewers">Brewers</button>
+  <button class="map-choose-button" data-artisan="ciders">Ciders</button>
+  <button class="map-choose-button" data-artisan="wines">Wines</button>
+  <button class="map-choose-button" data-artisan="distillers">Distillers</button>
+  <button class="map-choose-button" data-artisan="cheeses">Cheeses</button>
+</section>
+
+<section class="maps-artisans">
+  <div class="maps-artisans-panel">
+    <div id="list0" class="maps-artisans-list"></div>
+    <div id="map0" class="maps-artisans-map"></div>
+  </div>
+  <div class="maps-artisans-panel">
+    <div id="list1" class="maps-artisans-list"></div>
+    <div id="map1" class="maps-artisans-map"></div>
+  </div>
+  <div class="maps-artisans-panel">
+    <div id="list2" class="maps-artisans-list"></div>
+    <div id="map2" class="maps-artisans-map"></div>
+  </div>
+  <div class="maps-artisans-panel">
+    <div id="list3" class="maps-artisans-list"></div>
+    <div id="map3" class="maps-artisans-map"></div>
+  </div>
+  <div class="maps-artisans-panel">
+    <div id="list4" class="maps-artisans-list"></div>
+    <div id="map4" class="maps-artisans-map"></div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+@use "../component-helpers/" as *;
+
+// taken directly form %side-button
+.share-button {
+  @extend %side-button
+}

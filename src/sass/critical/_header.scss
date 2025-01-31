@@ -1,0 +1,134 @@
+@use "../core" as core;
+@use "../helpers" as helpers;
+@use "../component-helpers" as components;
+
+header {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 80px;
+  display: grid;
+  grid-template-columns: .25fr 1fr .25fr;
+  align-items: center;
+  justify-items: center;
+  color: core.mycolorfunction(white, base);
+  background-color: rgba(core.mycolorfunction(white, base), 0.15);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(core.mycolorfunction(blue, base), 0.25);
+  z-index: 55;
+  @extend %animate-helper;
+}
+
+.back-button {
+  grid-column: 1 / 2;
+  @extend %header-button;
+  svg {
+    @extend %header-button-svg;
+    fill: core.mycolorfunction(blue, dark15);
+  }
+  &-text {
+    font-weight: 700;
+    color: core.mycolorfunction(blue, dark15);
+    &:hover {
+      color: core.mycolorfunction(blue, dark35);
+      text-shadow: 0px 0px 7px core.mycolorfunction(blue, base);
+    }
+  }
+}
+
+.title {
+  grid-column: 2 / 3;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  align-items: center;
+  justify-items: center;
+  &-icon {
+    justify-self: right;
+    aspect-ratio: auto 1 / 1;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0px 0px 2px white);
+    @include helpers.tablet-breakpoint {
+      margin-right: 16px;
+    }
+  }
+  &-text {
+    text-align: center;
+    text-decoration: none;
+    color: core.mycolorfunction(blue, dark15);
+    font-size: var(--step-1);
+    &:hover {
+      color: core.mycolorfunction(blue, dark35);
+      text-shadow: 0px 0px 7px core.mycolorfunction(blue, base);
+    }
+    @include helpers.tablet-breakpoint {
+      font-size: var(--step-3);
+      justify-self: start;
+    }
+  }
+}
+
+.menu-button {
+  grid-column: 3 / 4;
+  @extend %header-button;
+  &-text {
+    color: core.mycolorfunction(blue, dark15);
+    align-self: start;
+    &:hover {
+      color: core.mycolorfunction(blue, dark35);
+      text-shadow: 0px 0px 7px core.mycolorfunction(blue, base);
+    }
+    &-red {
+      font-weight: 700;
+      color: rgba(255,0,0,0.55);
+    }
+  }
+}
+
+//https://codepen.io/samikeijonen/pen/jqvxdL
+.menu-toggle {
+  font-size: 0.875rem;
+}
+
+.icon {
+	height: 16px;
+	width: 16px;
+}
+
+/* Menu toggle styles. */
+
+.icon-menu-toggle {
+	width: 32px;
+	height: 32px;
+  fill: core.mycolorfunction(blue, dark25);
+  &-red {
+    fill: rgba(255,0,0,0.55);
+  }
+}
+
+/* Animate menu icon (lines). */
+.svg-menu-toggle .line {
+  transform: rotate(0) translateY(0) translateX(0);
+  transform-origin: 16px 16px;
+  @extend %animate-helper;
+}
+.svg-menu-toggle .line-1 {
+  transform-origin: 16px 40px;
+}
+.svg-menu-toggle .line-3 {
+  transform-origin: 16px 72px;
+}
+
+.menu-toggle.opened .svg-menu-toggle .line-1 {
+  transform: rotate(45deg) translateY(10.4px) translateX(-4.8px);
+  color: core.mycolorfunction(red, dark25);
+}
+.menu-toggle.opened .svg-menu-toggle .line-2 {
+  opacity: 0;
+}
+.menu-toggle.opened .svg-menu-toggle .line-3 {
+  transform: rotate(-45deg) translateY(0px) translateX(0px);
+  color: core.mycolorfunction(red, dark25);
+}

@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+title: Your VT Artisans Trail
+permalink: "/vermont-artisans-trail.html"
+eleventyComputed:
+  meta:
+    "dateModified": "{% lastModifiedSchemaShortCode page.inputPath %}"
+---
+
+<section class="trail-tabs-row" data-row="tab-row">
+  <p class="trail-tabs-item" data-source="chosen-tab">Your Trail</p>
+  <p class="trail-tabs-item" data-source="list-tab">Browse Artisans</p>
+  <p class="trail-tabs-item" data-source="map-tab">Trail Map</p>
+</section>
+
+<section class="trail-panel trail-panel-list" data-target="list-tab">
+
+  <section class="trail-list-choose">
+    <button class="trail-list-choose-button" data-artisan="brewers">Brewers</button>
+    <button class="trail-list-choose-button" data-artisan="ciders">Ciders</button>
+    <button class="trail-list-choose-button" data-artisan="wines">Wines</button>
+    <button class="trail-list-choose-button" data-artisan="distillers">Distillers</button>
+    <button class="trail-list-choose-button" data-artisan="cheeses">Cheeses</button>
+  </section>
+
+  <section class="trail-lists"></section>
+
+</section>
+
+<section class="trail-panel trail-panel-chosen" data-target="chosen-tab"></section>
+
+<section class="trail-panel" data-target="map-tab"></section>

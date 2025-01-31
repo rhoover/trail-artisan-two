@@ -1,0 +1,81 @@
+@use "../core" as core;
+@use "../helpers" as helpers;
+
+%artisan-home {
+  row-gap: 24px;
+  padding-bottom: 16px;
+  @include helpers.tablet-breakpoint {
+    grid-template-rows: max-content;
+    row-gap: 32px;
+    padding-top: 0px;
+  }
+  &-intro {
+    text-align: center;
+    padding: 16px 0px;
+    border-top: 1px solid core.mycolorfunction(blue, light45);
+    border-bottom: 1px solid core.mycolorfunction(blue, light45);
+    & p:first-of-type {
+      font-weight: 700;
+      font-size: var(--step-2);
+    }
+    // & p:last-of-type {
+    //   font-size: var(--step-2);
+    // }
+    & p {
+      line-height: 2rem;
+    }
+    @include helpers.tablet-breakpoint {
+      padding: 32px 0px;
+      grid-row: 1 / 2;
+      text-shadow: none;
+      width: 100%;
+    }
+  }
+  &-content {
+    display: grid;
+    row-gap: 20px;
+    @include helpers.tablet-breakpoint {
+      grid-row: 2 / 3;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      column-gap: 32px;
+      row-gap: 32px;
+      width: 100%;
+    }
+  }
+  &-item {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    border-radius: 7.2px;
+    border: 2px solid core.mycolorfunction(blue, light15);
+    color: core.mycolorfunction(black, base);
+    text-decoration: none;
+    cursor: pointer;
+    @extend %box-shadow;
+    @extend %animate-helper;
+    &:hover {
+        filter: brightness(0.65);
+    }
+    transition-property: filter;
+    &-image {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      font-style: italic;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+    &-text {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      width: 100%;
+      padding: 0.75rem 0px;
+      align-self: center;
+      text-align: center;
+      background-color: rgba(core.mycolorfunction(white, base), 0.7);
+      font-size: var(--step-3);
+    }
+  }
+}

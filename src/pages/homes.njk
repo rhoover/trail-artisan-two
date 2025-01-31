@@ -1,0 +1,131 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: artisanTypesData
+  size: 1
+  alias: artisan
+permalink: "/homes/vermont-{{ artisan.artisanType }}-home.html"
+eleventyComputed:
+  title: "Vermont {% nametotitle artisan.artisanType %} Home"
+---
+
+
+{% if artisan.artisanType == 'brewers' %}
+
+  <section class="homes-intro">
+    <p>The world's very best brewers, right here in Vermont,</p>
+    <p>crafting the world's best.</p>
+    <p>Take a look around to find your favorites.</p>
+  </section>
+
+  <section class="homes-content">
+    <a href="/lists/vermont-brewers-list.html" class="homes-item">
+      <img src="/img/home/beer/vermont-breweries.webp" class="homes-item-image" width="500" height="270" alt="Glasses Of Beer">
+      <p class="homes-item-text">Explore Vermont's Breweries</p>
+    </a>
+    <a href="/maps/brewers-location.html" class="homes-item">
+      <img src="/img/home/beer/vermont-map.webp" class="homes-item-image" width="500" height="270" alt="Google Map Image">
+      <p class="homes-item-text">Map of Vermont's Breweries</p>
+    </a>
+    <a href="/vermont-artisans-trail.html" class="homes-item">
+      <img src="/img/home/beer/vermont-beertrail.webp" class="homes-item-image" width="500" height="270" alt="Trail Sign">
+      <p class="homes-item-text">Build Your Own Beer Trail</p>
+    </a>
+  </section>
+{% endif %}
+
+{% if artisan.artisanType == 'cheeses' %}
+
+  <section class="homes-intro">
+    <p>The world's very best cheesemakers, right here in Vermont,</p>
+    <p>crafting the world's best.</p>
+    <p>Take a look around to find your favorites.</p>
+  </section>
+
+  <section class="homes-content">
+    <a href="/lists/vermont-cheeses-list.html" class="homes-item">
+      <img src="/img/home/cheese/cheesemakers.webp" class="homes-item-image" width="500" height="270" alt="Cheese Aging In A Cave">
+      <p class="homes-item-text">Explore Vermont's Cheese Makers</p>
+    </a>
+    <a href="/maps/cheeses-location.html" class="homes-item">
+      <img src="/img/home/cheese/cheesemap.webp" class="homes-item-image" width="500" height="270" alt="Google Map Image">
+      <p class="homes-item-text">Map of Vermont's Cheese Makers</p>
+    </a>
+    <a href="/vermont-artisans-trail.html" class="homes-item">
+      <img src="/img/home/cheese/cheesetrail.webp" class="homes-item-image" width="500" height="270" alt="Trail Through The Woods">
+      <p class="homes-item-text">Build Your Own Cheese Trail</p>
+    </a>
+  </section>
+{% endif %}
+
+{% if artisan.artisanType == 'ciders' %}
+
+  <section class="homes-intro">
+    <p>The world's very best artisan ciders, right here in Vermont,</p>
+    <p>crafting the world's best.</p>
+    <p>Take a look around to find your favorites.</p>
+  </section>
+
+  <section class="homes-content">
+    <a href="/lists/vermont-ciders-list.html" class="homes-item">
+      <img src="/img/home/cider/apples.webp" class="homes-item-image" width="500" height="270" alt="Apples In A Basket">
+      <p class="homes-item-text">Explore Vermont's Cideries</p>
+    </a>
+    <a href="/maps/ciders-location.html" class="homes-item">
+      <img src="/img/home/cider/vermont-cider-map.webp" class="homes-item-image" width="500" height="270" alt="Google Maps Image">
+      <p class="homes-item-text">Map of Vermont's Cideries</p>
+    </a>
+    <a href="/vermont-artisans-trail.html" class="homes-item">
+      <img src="/img/home/cider/apple-trail.webp" class="homes-item-image" width="500" height="270" alt="Trail Through An Orchard">
+      <p class="homes-item-text">Build Your Own Cider Trail</p>
+    </a>
+  </section>
+{% endif %}
+
+{% if artisan.artisanType == 'wines' %}
+
+  <section class="homes-intro">
+    <p>The world's very best artisan wine, right here in Vermont,</p>
+    <p>crafting the world's best.</p>
+    <p>Take a look around to find your favorites.</p>
+  </section>
+
+  <section class="homes-content">
+    <a href="/lists/vermont-wines-list.html" class="homes-item">
+      <img src="/img/home/wine/wineries.webp" class="homes-item-image" width="500" height="270" alt="Grapes In A Sunny Vineyard">
+      <p class="homes-item-text">Explore Vermont's Wineries</p>
+    </a>
+    <a href="/maps/wines-location.html" class="homes-item">
+      <img src="/img/home/wine/map.webp" class="homes-item-image" width="500" height="270" alt="Google Maps Image">
+      <p class="homes-item-text">Map of Vermont's Wineries</p>
+    </a>
+    <a href="/vermont-artisans-trail.html" class="homes-item">
+      <img src="/img/home/wine/trail.webp" class="homes-item-image" width="500" height="270" alt="Trail Through A Vineyard">
+      <p class="homes-item-text">Build Your Own Wine Trail</p>
+    </a>
+  </section>
+{% endif %}
+
+{% if artisan.artisanType == 'distillers' %}
+
+  <section class="homes-intro">
+    <p>The world's very best artisan distillers, right here in Vermont,</p>
+    <p>crafting the world's best.</p>
+    <p>Take a look around to find your favorites.</p>
+  </section>
+
+  <section class="homes-content">
+    <a href="/lists/vermont-distillers-list.html" class="homes-item">
+      <img src="/img/home/booze/distillery.webp" class="homes-item-image" width="500" height="270" alt="A Distillery In Action">
+      <p class="homes-item-text">Explore Vermont's Distillers</p>
+    </a>
+    <a href="/maps/distillers-location.html" class="homes-item">
+      <img src="/img/home/booze/distillers-map.webp" class="homes-item-image" width="500" height="270" alt="Google Maps Image">
+      <p class="homes-item-text">Map of Vermont's Distillers</p>
+    </a>
+    <a href="/vermont-artisans-trail.html" class="homes-item">
+      <img src="/img/home/booze/distillers-trail.webp" class="homes-item-image" width="500" height="270" alt="Trail Through The Woods">
+      <p class="homes-item-text">Build Your Own Distiller Trail</p>
+    </a>
+  </section>
+{% endif %}

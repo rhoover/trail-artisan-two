@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+pagination: 
+  data: all-artisans
+  size: 1
+  alias: artisan
+  addAllPagesToCollections: true
+permalink: "/{{ artisan.artisanType }}/{{ artisan.selector }}/location.html"
+eleventyComputed:
+  title: "{{ artisan.name }} Map"
+  meta:
+    "dateModified": "{% lastModifiedSchemaShortCode page.inputPath %}"
+---
+
+<section id="map" data-lat="{{artisan.latitude}}" data-lon="{{artisan.longitude}}" data-name="{{artisan.name}}"></section>
