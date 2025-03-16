@@ -290,7 +290,7 @@ const checkMarkCheck = {
       };
     });
   }
-};
+}; // end checkMarkCheck
 
 const trail = {
   init() {
