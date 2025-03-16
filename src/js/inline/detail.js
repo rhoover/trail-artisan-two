@@ -359,7 +359,7 @@ const trail = {
         if (data) {
           data.push(artisanObject);
         } else {
-          data = []
+          data = [];
           data.push(artisanObject);
         };
         localforage.setItem('artisanIDB', data);
