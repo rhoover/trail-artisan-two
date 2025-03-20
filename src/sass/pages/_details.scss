@@ -157,12 +157,19 @@
   &-tabs {
     &-row {
       @extend %tabs;
+      column-gap: 10px;
+      border-bottom: none;
+      border-top: none;
+      margin: 0px 10px 0px 10px;
     }
     &-item {
       @extend %tabs-item;
+      padding: 0px;
+      border: 1px solid core.mycolorfunction(blue, dark25);
+      border-radius: 0.25em;
       &:hover {
         color: core.mycolorfunction(blue, dark25);
-        text-decoration: underline;
+        font-weight: 700;
         text-decoration-color: core.mycolorfunction(blue, dark25);
       }
       &-active {
