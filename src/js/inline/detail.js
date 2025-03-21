@@ -203,7 +203,7 @@ const detailTabs = {
       } else { // else it's shopping
         var yelpDataTarget = document.querySelector('[target-panel="shopping"]');
       };
-console.log(yelpResults);
+
       // the response is a single array, each object is a business to display, thus the loop encompassing everything
       let yelpContent = "";
       yelpResults.forEach((yelpItem) => {
