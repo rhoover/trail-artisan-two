@@ -227,7 +227,7 @@ console.log(yelpResults);
           case ratingNumber >= 1:
             ratingString = "one";
             break;
-          case ratingNumber = 0:
+          case ratingNumber >= 0:
             ratingString = "zero";
             break;
         };
