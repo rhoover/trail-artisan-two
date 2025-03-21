@@ -210,39 +210,27 @@ console.log(yelpResults);
 
         //if we're to show the review stars, must first assign a string to the number rating
         let ratingNumber = yelpItem.rating;
-        let ratingString = ""
-          switch (ratingNumber) {
-            case 5:
-              ratingString = "five";
-              break;
-            case 4.5:
-              ratingString = "four-half";
-              break;
-            case 4:
-              ratingString = "four";
-              break;
-            case 3.5:
-              ratingString = "three-half";
-              break;
-            case 3:
-              ratingString = "three";
-              break;
-            case 2.5:
-              ratingString = "two-half";
-              break;
-            case 2:
-              ratingString = "two";
-              break;
-            case 1.5:
-              ratingString = "one-half";
-              break;
-            case 1:
-              ratingString = "one";
-              break;
-            case 0:
-              ratingString = "zero";
-              break;
-          }; // end switch
+        let ratingString = "";
+        switch (true) {
+          case ratingNumber >= 5:
+            ratingString = "five";    
+            break;
+          case ratingNumber >= 4:
+            ratingString = "four";
+            break;
+          case ratingNumber >= 3:
+            ratingString = "three";
+            break;
+          case ratingNumber >= 2:
+            ratingString = "two";
+            break;
+          case ratingNumber >= 1:
+            ratingString = "one";
+            break;
+          case ratingNumber = 0:
+            ratingString = "zero";
+            break;
+        };
 
           // yelp display from data build
           yelpContent = `
