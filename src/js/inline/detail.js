@@ -1,79 +1,83 @@
 (() => {
 'use strict';
 
-const tabs = {
+const detailTabs = {
 
   init() {
 
-    // turn string in details element to js object to collect geoData and stuff
-    let artisanObject = JSON.parse(document.querySelector('#detailData').textContent);
-    let lat = artisanObject.latitude;
-    let lon = artisanObject.longitude;
+    // collect latitude and longitude for this artisan
+    // and send element down
+    let tabRow = document.querySelector('.detail-tabs-row');
+    let lat = tabRow.getAttribute('artisan-latitude');
+    let lon = tabRow.getAttribute('artisan-longitude');
 
     // build formdata to be sent to server for fetching weather and yelp data
     let geoData = new FormData();
     geoData.append('latitude', lat);
     geoData.append('longitude', lon);
 
-    // get  tab row element to send down
-    let tabRow = document.querySelector('.detail-tabs-row');
-
     // get panel elements to send down
     let detailPanels = document.querySelectorAll('.detail-panel');
 
-    // clicking on a tab will bubble up to row, so only one listener is necessary
+    // click on a tab will bubble up to row, so only one listener is necessary
     // and send to adjust classes of items
     tabRow.addEventListener('click', (event) => {
 
-      tabs.initializePanels(event.target.dataset.source, geoData);
+      let clickedTab = event.target.getAttribute('source-button');
 
-      tabs.adjustClasses(event.target, tabRow, detailPanels);
+      // send appropriate data to appropriate panel
+      switch (clickedTab) {
+        case 'weather':
+          detailTabs.weatherPanel(geoData);
+        break;
+        case 'dining':
+          detailTabs.yelpPanels(geoData, 'restaurants');
+        break;
+        case 'shopping':
+          detailTabs.yelpPanels(geoData, 'shopping');
+        break;
+        default:
+      };
+
+      // adjust classes for both tabs and panels
+      detailTabs.adjustClasses(event.target, tabRow, detailPanels);
     });
   }, // end init
 
-  initializePanels(clickedTab, geoData) {
-
-    switch (clickedTab) {
-      case 'weather-tab':
-        tabs.weatherPanel(geoData);
-      break;
-      case 'dining-tab':
-        tabs.yelpPanels(geoData, 'restaurants');
-      break;
-      case 'shopping-tab':
-        tabs.yelpPanels(geoData, 'shopping');
-      break;
-      default:
-    }
-  }, // end initialize panels
-
   adjustClasses(clickedTab, tabRow, detailPanels) {
 
-    // first remove any active classes for each tab from a previous click
+    // first remove any active classes for each tab in row from a previous click
     let tabItems = tabRow.querySelectorAll('.detail-tabs-item');
     tabItems.forEach((tab) => {
       tab.classList.remove('detail-tabs-item-active');
     });
 
-    // then add active class to clicked tab
+    // then add new active class to clicked tab
     clickedTab.classList.add('detail-tabs-item-active');
 
+    // remove any active classes for each panel from a previous click
+    // and add to new panel
     detailPanels.forEach((panel) => {
 
-      // remove any active classes for each panel from a previous click
+      // remove active class
       if (panel.classList.contains('detail-panel-active')) {
-        document.startViewTransition ?
-        document.startViewTransition(() => panel.classList.remove('detail-panel-active')) :
-        panel.classList.remove('detail-panel-active');
+        if (document.startViewTransition) {
+          document.startViewTransition(() => panel.classList.remove('detail-panel-active'));
+        } else {
+          panel.classList.remove('detail-panel-active')
+        };
       };
 
-      // add active classe to panel
-      if (panel.dataset.target == clickedTab.dataset.source) {
-        document.startViewTransition ?
-        document.startViewTransition(() => panel.classList.add('detail-panel-active')) :
-        document.startViewTransition(() => panel.classList.add('detail-panel-active'));
+      // add new active class
+      if (panel.getAttribute('target-panel') == clickedTab.getAttribute('source-button')) {
+        if (document.startViewTransition) {
+          document.startViewTransition(() => panel.classList.add('detail-panel-active'));          
+        } else {
+          document.startViewTransition(() => panel.classList.add('detail-panel-active'));          
+        };
       };
     }); // end forEach
+
   }, // end adjust classes
 
   weatherPanel(geoData) {
@@ -121,7 +125,7 @@ const tabs = {
       // current weather display from data build
       currentContent = `
         <h5 class="detail-panel-weather-current-header">Current Weather:</h5>
-        <img src="/img/openWeather/${weatherResults.current.weather[0].icon}.png" width="50" height="50" alt="Weather Icon">
+        <img src="/img/openWeather/${weatherResults.current.weather[0].icon}.png" width="50" height="50">
         <p class="desc">${weatherResults.current.weather[0].description.replace(/\b\w/g, (c) => c.toUpperCase())}</p>
         <p class="current">${Math.round(weatherResults.daily[0].temp.day) + '\u00B0'}</p>
         <p class="min">Min. Temp:<br />${Math.round(weatherResults.daily[0].temp.min) + '\u00B0'}</p>
@@ -143,7 +147,7 @@ const tabs = {
       function fiveIcons() {
         let icons = "";
         fiveDayForecast.forEach((i) => {
-          icons += `<img src="/img/openWeather/${i.icon}.png" width="50" height="50" alt="Weathder Icon">`;
+          icons += `<img src="/img/openWeather/${i.icon}.png" width="50" height="50">`;
         });
         return icons;
       };
@@ -157,7 +161,7 @@ const tabs = {
       function fiveTemps() {
         let temps = "";
         fiveDayForecast.forEach((i) => {
-          temps += `<p>Low: ${i.minTemp + '\u00B0'}<br />Hi: ${i.maxTemp  + '\u00B0'}</p>`;
+          temps += `<p>Low: ${i.minTemp + '\u00B0'} Hi: ${i.maxTemp  + '\u00B0'}</p>`;
         });
         return temps;
       };
@@ -195,11 +199,11 @@ const tabs = {
 
       // where to stuff incoming data into the DOM 
       if (searchTerm === 'restaurants') {
-        var yelpDataTarget = document.querySelector('[data-target="dining-tab"]');
+        var yelpDataTarget = document.querySelector('[target-panel="dining"]');
       } else { // else it's shopping
-        var yelpDataTarget = document.querySelector('[data-target="shopping-tab"]');
-      }
-
+        var yelpDataTarget = document.querySelector('[target-panel="shopping"]');
+      };
+console.log(yelpResults);
       // the response is a single array, each object is a business to display, thus the loop encompassing everything
       let yelpContent = "";
       yelpResults.forEach((yelpItem) => {
@@ -243,7 +247,7 @@ const tabs = {
           // yelp display from data build
           yelpContent = `
             <div class="detail-panel-yelpcard">
-              <img src="${yelpItem.image_url}" class="detail-panel-yelpcard-image" alt="Business Image">
+              <img src="${yelpItem.image_url}" class="detail-panel-yelpcard-image">
               <div class="detail-panel-yelpcard-meta">
                 <p class="detail-panel-yelpcard-meta-name">${yelpItem.name}</p>
                 <p class="detail-panel-yelpcard-meta-address">${yelpItem.location.address1}</p>
@@ -253,7 +257,7 @@ const tabs = {
                 <span class="detail-panel-yelpcard-yelp-stars ${ratingString}"></span>
                 <p class="detail-panel-yelpcard-yelp-reviews">Reviews: ${yelpItem.review_count}</p>
                 <a href="${yelpItem.phone}" class="detail-panel-yelpcard-yelp-phone">${yelpItem.display_phone}</a>
-                  <a class="detail-panel-yelpcard-yelp-url" href="${yelpItem.url}" target="_blank" rel="noreferrer noopener">Explore On <img src="/img/yelp_fullcolor.png" alt="Yelp Dot Com Logo" alt="Yelp Logo Icon">
+                  <a class="detail-panel-yelpcard-yelp-url" href="" target="_blank" rel="noreferrer noopener">Explore On <img src="/img/yelp_fullcolor.png" alt="Yelp Dot Com Page">
                 </a>
               </div>
             </div>
@@ -265,7 +269,7 @@ const tabs = {
   } // end yelp panels
 }; // end detailTabs
 
-const checkMarkCheck = {
+const detailCheckMarkCheck = {
   init() {
 
     // gather up all the things
@@ -290,9 +294,9 @@ const checkMarkCheck = {
       };
     });
   }
-}; // end checkMarkCheck
+};
 
-const trail = {
+const detailTrail = {
   init() {
 
     // turn string in details element to js object
@@ -311,7 +315,7 @@ const trail = {
     // grab add button text
     let addText = document.querySelector('.detail-action-item-bigtext');
 
-    trail.clickingOnSaveToTrail(artisanObject,detailModalOne,detailModalTwo,addMe,checkMe,addText);
+    detailTrail.clickingOnSaveToTrail(artisanObject,detailModalOne,detailModalTwo,addMe,checkMe,addText);
   }, // end init
 
   clickingOnSaveToTrail(artisanObject,detailModalOne,detailModalTwo,addMe,checkMe,addText) {
@@ -339,7 +343,7 @@ const trail = {
         } else { // false, it needs to be added
 
           // send object off to be added to idb
-          trail.addToTrail(artisanObject);
+          detailTrail.addToTrail(artisanObject);
           
           // swing the congrats modal into action
           detailModalOne.classList.add('detail-modal-open');
@@ -347,7 +351,7 @@ const trail = {
           addText.textContent = 'Added To Your Trail';
         };
 
-        trail.modalsBoth(detailModalOne, detailModalTwo);
+        detailTrail.modalsBoth(detailModalOne, detailModalTwo);
       }); // end localforage .then
     };
   }, // end clicking on add to trail
@@ -359,7 +363,7 @@ const trail = {
         if (data) {
           data.push(artisanObject);
         } else {
-          data = [];
+          data = []
           data.push(artisanObject);
         };
         localforage.setItem('artisanIDB', data);
@@ -384,7 +388,7 @@ const trail = {
   }, // end modalsBoth
 }; // end detailTrail
 
-tabs.init();
-checkMarkCheck.init();
-trail.init();
+detailTabs.init();
+detailCheckMarkCheck.init();
+detailTrail.init();
 })();
