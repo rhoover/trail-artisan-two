@@ -275,8 +275,7 @@ const detailCheckMarkCheck = {
         idbState = idb.find(artisan => artisan.selector === artisanObject.selector);
       };
 
-      if (idbState) { // current dispensary *is* in db
-        
+      if (idbState) { // current artisan *is* in db
         checkMe.classList.add('detail-action-item-check-selected');
         addText.textContent = 'Already In Your Trail';
       };
