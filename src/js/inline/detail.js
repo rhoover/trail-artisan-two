@@ -39,7 +39,7 @@ const detailTabs = {
         default:
       };
 
-      // adjust classes for both tabs and panels
+      // go adjust classes for both tabs and panels
       detailTabs.adjustClasses(event.target, tabRow, detailPanels);
     });
   }, // end init
