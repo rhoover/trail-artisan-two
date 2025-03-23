@@ -7,12 +7,6 @@
 }
 
 .detail {
-  grid-template-rows: repeat(5, max-content);
-  row-gap: 16px;
-  @include helpers.tablet-breakpoint {
-    grid-template-rows: 384px max-content 1fr;
-    grid-template-columns: minmax(16px, 1fr) minmax(auto, 560px) minmax(auto, 560px) minmax(16px, 1fr);
-  }
   &-topper {
     display: grid;
     grid-template-columns: 1fr;
@@ -63,8 +57,8 @@
       align-items: center;
       border-radius: 8px;
       padding: 16px 8px;
-      border: 1px solid core.mycolorfunction(blue, light35);
-      background-color: core.mycolorfunction(white, light75);
+      border: 1px solid core.mycolorfunction(blue, light25);
+      background-color: core.mycolorfunction(white, light85);
       cursor: pointer;
       font-size: var(--step-1);
       @extend %box-shadow;
@@ -105,7 +99,7 @@
         height: 25px;
         width: 25px;
         margin: 0px 12px 0px 8px;
-        fill: core.mycolorfunction(green, base);
+        fill: core.mycolorfunction(blue, base);
         stroke-width: 2px;
         @include helpers.tablet-breakpoint {
           font-weight: 400;
