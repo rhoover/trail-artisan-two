@@ -4,9 +4,15 @@
   @extend %artisan-home;
   &-intro {
     @extend %artisan-home-intro;
+    & p:first-of-type {
+      font-weight: 700;
+      font-size: var(--step-4);
+      padding-bottom: 16px;
+    }
     & p:nth-of-type(4) {
       font-weight: 700;
-      font-size: var(--step-2);
+      font-size: var(--step-4);
+      padding: 16px 0px 16px 0px;
     }
   }
   &-content {
