@@ -23,9 +23,10 @@
     if (styleExists) {
       listsNavSubItem.removeAttribute('style');
     } else {
-      // get width of nav element so as to move sub-list exactly that amount/number
-      let topNavElementWidth = topNavElement.offsetWidth;
-      listsNavSubItem.style.transform = `translateX(${topNavElementWidth}px)`;      
+      // get width of sub-menu element so as to move exactly that amount/number
+      let subMenuWidth = listsNavSubItem.offsetWidth;
+      // move baby     
+      listsNavSubItem.style.transform = `translateX(-${subMenuWidth}px)`;      
     };
   };
 
