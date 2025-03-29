@@ -39,11 +39,12 @@
 }
 
 .maps-artisans {
+  height: 90%;
+  border: 1px solid core.mycolorfunction(blue, base);
+  border-radius: 8px;
   &-panel {
     display: none;
-    height: 90%;
-    border: 1px solid core.mycolorfunction(blue, base);
-    border-radius: 8px;
+    height: 100%;
     padding: 2px;
     position: relative;
     &-active {
