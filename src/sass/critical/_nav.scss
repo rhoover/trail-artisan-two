@@ -30,6 +30,7 @@
     align-items: center;
     padding-left: 20px;
     border-top: 1px solid rgba(core.mycolorfunction(green, dark45), 0.5);
+    @extend %animate-helper;
     &:hover {
       background-color: core.mycolorfunction(blue, light55);
       cursor: pointer;
