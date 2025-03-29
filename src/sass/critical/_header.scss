@@ -75,7 +75,7 @@ header {
   @extend %header-button;
   &-text {
     color: core.mycolorfunction(blue, dark15);
-    align-self: start;
+    font-weight: 700;
     &:hover {
       color: core.mycolorfunction(blue, dark35);
       text-shadow: 0px 0px 7px core.mycolorfunction(blue, base);
@@ -88,20 +88,11 @@ header {
 }
 
 //https://codepen.io/samikeijonen/pen/jqvxdL
-.menu-toggle {
-  font-size: 0.875rem;
-}
-
-.icon {
-	height: 16px;
-	width: 16px;
-}
-
 /* Menu toggle styles. */
 
 .icon-menu-toggle {
-	width: 32px;
-	height: 32px;
+	width: 25px;
+	height: 25px;
   fill: core.mycolorfunction(blue, dark25);
   &-red {
     fill: rgba(255,0,0,0.55);
