@@ -57,11 +57,11 @@ header {
   &-text {
     text-align: center;
     text-decoration: none;
-    color: core.mycolorfunction(blue, dark15);
+    color: core.mycolorfunction(green, base);
     font-size: var(--step-1);
     &:hover {
-      color: core.mycolorfunction(blue, dark35);
-      text-shadow: 0px 0px 7px core.mycolorfunction(blue, base);
+      color: core.mycolorfunction(green, dark25);
+      text-shadow: 0px 0px 7px core.mycolorfunction(green, light25);
     }
     @include helpers.tablet-breakpoint {
       font-size: var(--step-3);
