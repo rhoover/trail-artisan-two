@@ -92,9 +92,12 @@
     padding: 5px 10px 5px 5px;
     margin: 20px;
     width: fit-content;
-    border: 1px solid rgba(255,0,0,0.5);
+    border: 1px solid rgba(255,0,0,0.55);
     border-radius: 16px;
     cursor: pointer;
+    &:hover {
+      background-color: rgba(core.mycolorfunction(white, dark25), 1.0);
+    }
     & svg {
       fill: rgba(255,0,0,0.55);
       width: 30px;
