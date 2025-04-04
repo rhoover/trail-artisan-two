@@ -86,32 +86,36 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="detail-tabs-row" artisan-latitude="{{artisan.latitude}}" artisan-longitude="{{artisan.longitude}}">
-  <button class="detail-tabs-item" source-button="dining">Local Dining</button>
-  <button class="detail-tabs-item" source-button="shopping">Local Shopping</button>
-  <button class="detail-tabs-item" source-button="weather">Local Weather</button>
-</section>
+<buttons-row>
+  <section class="detail-tabs-row" artisan-latitude="{{artisan.latitude}}" artisan-longitude="{{artisan.longitude}}">
+    <button class="detail-tabs-item" source-button="dining">Local Dining</button>
+    <button class="detail-tabs-item" source-button="shopping">Local Shopping</button>
+    <button class="detail-tabs-item" source-button="weather">Local Weather</button>
+  </section>
+</buttons-row>
 
 <!-- data-content panels -->
-<section class="detail-panel" target-panel="dining">
-  <div class="detail-panel-header">
-      <p>Local Dining By:</p>
-    <a href="https://www.yelp.com" target="_blank" rel="noreferrer noopener"><img src="/img/yelp_fullcolor.png" alt="yelp icon" class="detail-panel-header-image" width="100" height="40"></a>
-  </div>
-</section>
+<panels-row>
+  <section class="detail-panel" target-panel="dining">
+    <div class="detail-panel-header">
+        <p>Local Dining By:</p>
+      <a href="https://www.yelp.com" target="_blank" rel="noreferrer noopener"><img src="/img/yelp_fullcolor.png" alt="yelp icon" class="detail-panel-header-image" width="100" height="40"></a>
+    </div>
+  </section>
 
-<section class="detail-panel" target-panel="shopping">
-  <div class="detail-panel-header">
-      <p>Local Shopping By:</p>
-    <a href="https://www.yelp.com" target="_blank" rel="noreferrer noopener"><img src="/img/yelp_fullcolor.png" alt="yelp icon" class="detail-panel-header-image" width="100" height="40"></a>
-  </div>
-</section>
+  <section class="detail-panel" target-panel="shopping">
+    <div class="detail-panel-header">
+        <p>Local Shopping By:</p>
+      <a href="https://www.yelp.com" target="_blank" rel="noreferrer noopener"><img src="/img/yelp_fullcolor.png" alt="yelp icon" class="detail-panel-header-image" width="100" height="40"></a>
+    </div>
+  </section>
 
-<section class="detail-panel" target-panel="weather">
-  <div class="detail-panel-header">
-    <p>Local Weather By:</p>
-    <a href="https://openweathermap.org/" target="_blank" rel="noreferrer noopener"><img src="/img/OpenWeather-Logo-Small.png" alt="open weather map icon" class="detail-panel-header-image" width="75" height="33"></a>
-  </div>
-  <div class="detail-panel-weather-current"></div>
-  <div class="detail-panel-weather-fiveday"></div>
-</section>
+  <section class="detail-panel" target-panel="weather">
+    <div class="detail-panel-header">
+      <p>Local Weather By:</p>
+      <a href="https://openweathermap.org/" target="_blank" rel="noreferrer noopener"><img src="/img/OpenWeather-Logo-Small.png" alt="open weather map icon" class="detail-panel-header-image" width="75" height="33"></a>
+    </div>
+    <div class="detail-panel-weather-current"></div>
+    <div class="detail-panel-weather-fiveday"></div>
+  </section>
+</panels-row>
