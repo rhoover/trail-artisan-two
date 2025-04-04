@@ -7,7 +7,8 @@
       super();
 
       // initialize the things
-      this.buttonRow = this.querySelector('.detail-tabs-row');
+      // this.buttonRow = this.querySelector('.detail-tabs-row');
+      this.buttonRow = document.querySelector('buttons-row');
       this.lat = this.buttonRow.getAttribute('artisan-latitude');
       this.lon = this.buttonRow.getAttribute('artisan-longitude');
       this.buttonRowItems = this.buttonRow.querySelectorAll('.detail-tabs-item');
@@ -421,7 +422,7 @@
       };
     }, // end modalsBoth
   }; // end detailTrail
-  
+
   detailCheckMarkCheck.init();
   detailTrail.init();
 
