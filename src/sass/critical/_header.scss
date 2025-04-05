@@ -22,6 +22,10 @@ header {
 .back-button {
   grid-column: 1 / 2;
   @extend %header-button;
+  display: none;
+  &-active {
+    display: grid
+  }
   svg {
     @extend %header-button-svg;
     fill: core.mycolorfunction(blue, dark15);
