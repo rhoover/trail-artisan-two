@@ -142,6 +142,8 @@
     &-label {
       @extend %search-label;
       top: -12px;
+      left: 55px;
+      border-radius: 16px;
     }
     &-input {
       @extend %inputs;
@@ -156,6 +158,8 @@
     }
     &-svg {
       @extend %search-svg;
+      right: 0px;
+      left: -35px;
     }
   }
 }
