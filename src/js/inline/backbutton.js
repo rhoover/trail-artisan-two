@@ -1,16 +1,20 @@
 (() => {
   'use strict';
 
-  var backButton = document.querySelector('.back-button');
+  let backButton = document.querySelector('.back-button');
 
+    // get rid of class on landing page
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted && history.state) {
+        backButton.classList.remove('back-button-active');
+      };
+    });
   // history.length is always 1 or 2 when landing on site for first time
   // it will be 2 if landing on site for the first time from URL in a new tab
-  if (document.referrer == '' && history.length == 2) {
-    return;
   // it will be 1 if site was landed upon for the first time from a link somewhere else
-  } else if (history.length == 1) {
-    return;
-  // when both the above are false, show the back button
+    if ((history.state == null && document.referrer == '') || history.length == 1) {
+      history.replaceState({ historyLength: history.length, href: location.href, page: 'Landing Page' }, "foo");
+      return;
   } else {
     backButton.classList.add('back-button-active');
   };
