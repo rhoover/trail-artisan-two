@@ -197,15 +197,15 @@
   {# Map-Artisan Page #}
   {#########################################}
   {% if (page.fileSlug == 'map-artisan-type') %}
-      <!-- google maps herself must speak on the matter -->
-      <script async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEBOmZu2tJSCVLk9CoPUQFU10EnFyBv9M&loading=async&callback=initMap">
-      </script>
-      <!-- artisan map building -->
-      {%  set js %}
-        {% include "../../js/inline/map-artisan-type.js" %}
-      {% endset %}
-      <script>
-        {{ js | jsmin | safe }}
-      </script>
-    {% endif %}
+    <!-- google maps herself must speak on the matter -->
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEBOmZu2tJSCVLk9CoPUQFU10EnFyBv9M&loading=async&callback=initMap">
+    </script>
+    <!-- artisan map building -->
+    {%  set js %}
+      {% include "../../js/inline/map-artisan-type.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
