@@ -209,3 +209,25 @@
       {{ js | jsmin | safe }}
     </script>
   {% endif %}
+
+  {#########################################}
+  {# Google Analytics Link #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/google-analytics-link.js" %}
+  {% endset %}
+  <!-- create google analytics link -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+
+  {#########################################}
+  {# Google Analytics Config #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/google-analytics-config.js" %}
+  {% endset %}
+  <!-- provide google analytics config -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
