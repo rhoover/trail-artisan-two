@@ -31,6 +31,19 @@
       let yourTrailTab = document.querySelector('[data-source="chosen-tab"]');
       yourTrailTab.addEventListener('click', () => {
         window.location.replace(window.location.href);
+
+        // function reloadCSS() {
+        //   const links = document.getElementsByTagName('link');
+          
+        //   Array.from(links)
+        //     .filter(link => link.rel.toLowerCase() === 'stylesheet' && link.href)
+        //     .forEach(link => {
+        //       const url = new URL(link.href, location.href);
+        //       url.searchParams.set('forceReload', Date.now());
+        //       link.href = url.href;
+        //     });
+        // };
+        // reloadCSS();
       });
 
       // gathering our content to manipulate
