@@ -78,7 +78,18 @@
     line-height: var(--step-4);
     font-size: var(--step3);
     font-weight: normal;
+    border-color: core.mycolorfunction(blue, base);
+    border-radius: 8px;
+    border-width: 1px;
   }
+  &-search-label {
+    color: core.mycolorfunction(blue, base);
+    font-weight: 700;
+  }
+}
+
+input[type="search" i]::-webkit-search-cancel-button {
+  @extend %cancel-search;
 }
 
 // https://scroll-driven-animations.style/demos/progress-bar/css/
