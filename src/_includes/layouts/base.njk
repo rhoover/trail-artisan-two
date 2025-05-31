@@ -37,7 +37,7 @@ eleventyComputed:
   {% include 'components/head-element.njk' %}
 
   <body>
-    {% if page.fileSlug == 'lists' %}
+    {% if page.fileSlug == 'lists' or page.fileSlug == ''%}
       <div id="progress"></div>
     {% endif %}
     {% include "components/header.njk" %}
