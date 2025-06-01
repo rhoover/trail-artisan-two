@@ -6,6 +6,7 @@
   @extend %artisan-home;
   &-intro {
     @extend %artisan-home-intro;
+    position: relative;
     & p:first-of-type {
       font-weight: 700;
       font-size: var(--step-4);
@@ -52,7 +53,6 @@
     border-radius: 8px;
     background: core.mycolorfunction(white, base);
     overflow-y: scroll;
-    width: 90%;
     margin: 0 auto;
     text-align: center;
     &-active {
