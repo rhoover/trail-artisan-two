@@ -48,7 +48,7 @@
     max-block-size: 320px;
     inline-size: calc(100% + 1px);
     z-index: 999;
-    transition: opacity 0.1s, visibility 0.1s, transform 0.2s;
+    transition: opacity 0.5s, visibility 0.5s, transform 0.6s;
     border: 1px solid core.mycolorfunction(blue, base);
     border-radius: 8px;
     background: core.mycolorfunction(white, base);
