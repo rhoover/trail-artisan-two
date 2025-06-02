@@ -76,7 +76,7 @@
   }
   &-search-input {
     line-height: var(--step-4);
-    font-size: var(--step3);
+    font-size: var(--step-3);
     font-weight: normal;
     padding-left: 35px;
     border-color: core.mycolorfunction(blue, base);
@@ -93,7 +93,6 @@
   }
 }
 
-// input[type="search" i]::-webkit-search-cancel-button {
 input[type="search"]::-webkit-search-cancel-button {
   @extend %cancel-search;
 }
