@@ -2672,6 +2672,26 @@
     "artisanType": "cheeses"
   },
   {
+    "name": "Scott Farm Orchards",
+    "address": "707 Kipling Road",
+    "city": "Dummerston",
+    "state": "VT",
+    "zip": "05301",
+    "phone": "802.579.1720",
+    "latitude": 42.90414017152644,
+    "longitude": -72.56837260085797,
+    "region": "south",
+    "selector": "scottfarm",
+    "cider100": "/img/cider-100/scottfarm.png",
+    "cider200": "/img/cider-200/scottfarm.png",
+    "url": "https://www.scottfarmvermont.com/hardcider",
+    "facebook": "https://www.facebook.com/ScottFarmOrchard/",
+    "twitter": "",
+    "googleplus": "",
+    "instagram": "https://www.instagram.com/scottfarmvt/",
+    "artisanType": "ciders"
+  },
+  {
     "name": "Stowe Cider",
     "address": "17 Town Farm Lane",
     "city": "Stowe",

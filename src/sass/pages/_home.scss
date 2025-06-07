@@ -86,6 +86,10 @@
     background-position: left 5px center;
     background-size: 24px auto;
     background-repeat: no-repeat;
+    &:focus {
+      outline: none;
+      border: 2px solid core.mycolorfunction(blue, base);
+    }
   }
   &-search-label {
     color: core.mycolorfunction(blue, base);

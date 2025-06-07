@@ -9,6 +9,8 @@
     "serve": "npm-run-all --parallel watch:eleventy watch:critical",
 
     "allartisandata": "node src/bin/all-artisans.js",
+    "all": "node src/bin/all.js",
+    "ciders": "node src/bin/ciders.js",
 
     "serviceworker:create": "node src/_eleventy/utilities/service-worker-create.js",
     "serviceworker:min": "terser artisans-service-worker.js -o artisans-service-worker-min.js",
@@ -19,7 +21,6 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "type": "module",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "eleventy-plugin-rev": "^2.0.0",
