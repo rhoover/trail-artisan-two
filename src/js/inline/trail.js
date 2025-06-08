@@ -306,7 +306,7 @@
       function chosenFunction() {
         localforage.getItem('artisanIDB').then(idbState => {
           let selectedOutput = '';
-  
+
           if (idbState !== null) {
             idbState.sort( (a, b) => {
               if (a.selector > b.selector) {

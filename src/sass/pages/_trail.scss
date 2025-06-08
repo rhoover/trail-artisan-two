@@ -66,6 +66,9 @@
   }
   &-list-intro {
     align-self: center;
+    font-size: var(--step-1);
+    margin-bottom: 16px;
+    font-weight: 700;
   }
   &-list-item {
     @extend %artisans-item;
