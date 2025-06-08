@@ -12,7 +12,7 @@ for (let i = 0; i < files.length; i++) {
 
   let fileName = path.parse(filePath).name;
 
-  if (fileName !== "artisanTypesData") {
+  if (fileName !== "artisanTypesData" && fileName !== "all-artisans") {
   
     let fileContentObject = fs.readFileSync(filePath, "utf-8");
   
@@ -28,6 +28,10 @@ for (let i = 0; i < files.length; i++) {
 };
 
 fs.writeFile("./src/all-artisan-data/all-artisan-data.json", JSON.stringify(allArtisansArray, null, 2), err => {
+  if (err) throw error;
+  console.log("JSON Success");
+});
+fs.writeFile("./src/_data/all-artisans.json", JSON.stringify(allArtisansArray, null, 2), err => {
   if (err) throw error;
   console.log("JSON Success");
 });
