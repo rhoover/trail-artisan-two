@@ -32,7 +32,13 @@
             displayResults(obj);
           };
         };
-      }); // end eventListener
+      });
+
+      searchInput.addEventListener('input', () => {
+        if (searchInput.value.length == 0) {
+        resultsList.innerHTML = '';          
+        };
+      });
     } catch (error) {
       console.log(error);
     }; // end fetchAndSearch
