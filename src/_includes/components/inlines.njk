@@ -70,7 +70,7 @@
   {% if page.fileSlug == '' %}
     <!-- search behavior for home -->
     {% set js %}
-      {% include "../../js/inline/home-search.js" %}
+      {% include "../../js/inline/search-home.js" %}
     {% endset %}
     <script>
       {{ js | jsmin | safe }}
