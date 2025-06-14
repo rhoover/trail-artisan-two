@@ -28,17 +28,20 @@
         for (let i = 0; i < artisanData.length; i++) {
           let obj = artisanData[i];
 
+          // send the results to a function to display them
           if (obj.name.toLowerCase().includes(searchQuery) || obj.city.toLowerCase().includes(searchQuery)) {
             displayResults(obj);
           };
         };
       });
 
+      // for clearing the results when the clear button is clicked
       searchInput.addEventListener('input', () => {
         if (searchInput.value.length == 0) {
         resultsList.innerHTML = '';          
         };
       });
+      
     } catch (error) {
       console.log(error);
     }; // end fetchAndSearch
