@@ -5,6 +5,10 @@
   let resultsList = document.querySelector('.home-search-results')
   let searchQuery, response, artisanData;
 
+  window.addEventListener('beforeunload', (event) => {
+    searchInput.value = '';
+  });
+
 
   async function fetchAndSearch() {
     try {
@@ -23,8 +27,10 @@
           break;
           case 'blur':
             resultsList.classList.remove('home-search-results-active');
-            searchInput.value = '';
-            resultsList.innerHTML = '';
+            setTimeout(() => {
+              searchInput.value = '';
+              resultsList.innerHTML = '';              
+            }, 1000);
             
           break;
           case 'keyup':
@@ -69,7 +75,4 @@
 
   fetchAndSearch();
 
-  resultsList.addEventListener('click', () => {
-    searchInput.value = '';
-  });
 })();
