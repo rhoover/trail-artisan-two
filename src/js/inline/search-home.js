@@ -35,7 +35,7 @@
             for (let i = 0; i < artisanData.length; i++) {
               let obj = artisanData[i];
 
-              // send the results to a function to display them
+              // send the results to the displayResults function to display them
               if (obj.name.toLowerCase().includes(searchQuery) || obj.city.toLowerCase().includes(searchQuery)) {
                 displayResults(obj);
               };
@@ -52,7 +52,7 @@
           default:
           break;
         }; //end switch
-      };
+      }; // end doSomething()
       
     } catch (error) {
       console.log(error);
@@ -65,7 +65,7 @@
       link.innerHTML = `${results.name} - ${results.city}`;
       resultsList.appendChild(link);
     };
-  };
+  }; // end displayResults()
 
   fetchAndSearch();
 
