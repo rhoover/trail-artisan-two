@@ -72,7 +72,7 @@
     {% set js %}
       {% include "../../js/inline/search-home.js" %}
     {% endset %}
-    <script>
+    <script type="module">
       {{ js | jsmin | safe }}
     </script>
   {% endif %}
