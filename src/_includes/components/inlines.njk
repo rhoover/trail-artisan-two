@@ -21,6 +21,17 @@
   </script>
   
   {#########################################}
+  {# Hide Progress Bar If Need Be #}
+  {#########################################}
+  {% set js %}
+    {% include "../../js/inline/hide-progress-bar.js" %}
+  {% endset %}
+  <!-- hide progress bar if necessary -->
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+  
+  {#########################################}
   {# Header Behavior #}
   {#########################################}
   {% set js %}
