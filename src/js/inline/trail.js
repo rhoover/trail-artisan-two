@@ -1,18 +1,7 @@
-(async () => {
-  'use strict';
+import artisanData from '/all-artisan-data/all-artisan-data.json' with {type: 'json'};
 
-  /////////////
-  // this is a different pattern than before, as I needed the all-artisan-json in the "global" space
-  // for this page, but not the true global space of javascript
-  // this was accomplished with this async pattern, above and right here
-  // thanks: https://stackoverflow.com/questions/72389096/how-to-store-the-json-data-from-fetch-api-request-into-a-global-variable-javas
-  ///////////////
-  const dataFetch = async () => {
-    const response = await fetch('/all-artisan-data/all-artisan-data.json');
-    const remoteData = await response.json();
-    return remoteData;
-  };
-  let remoteJSON = await dataFetch();
+((remoteJSON) => {
+  'use strict';
 
   const trailTabs = {
 
@@ -413,4 +402,4 @@
   trailTabs.init();
   listChoose.init(remoteJSON);
   trailBuild.init(remoteJSON);
-})();
+})(artisanData);

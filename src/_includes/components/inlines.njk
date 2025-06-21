@@ -204,7 +204,7 @@
     {% set js %}
       {% include "../../js/inline/trail.js" %}
     {% endset %}
-    <script>
+    <script type="module">
       {{ js | jsmin | safe }}
     </script>
 
