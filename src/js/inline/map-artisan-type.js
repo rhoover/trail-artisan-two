@@ -107,8 +107,6 @@ function initMap() {
     }; // end mapOptions
       
     map = new google.maps.Map(mapTarget, mapOptions);
-    // initialize marker popup thing and variables
-    let infowindow = new google.maps.InfoWindow({});
 
     // loop through all the artisans...
     for(i = 0; i < artisans.length; i++) {

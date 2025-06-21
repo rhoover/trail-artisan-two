@@ -212,7 +212,7 @@
     {% set js %}
       {% include "../../js/inline/map-trail.js" %}
     {% endset %}
-    <script>
+    <script type>
       {{ js | jsmin | safe }}
     </script>
   {% endif %}
