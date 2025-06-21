@@ -1,69 +1,71 @@
-
-import artisanData from './all-artisan-data/all-artisan-data.json' with {type: 'json'};
-
+import myData from '/all-artisan-data/all-artisan-data.json' with {type: 'json'};
 
 let searchInput = document.getElementById('searchbox');
 let resultsList = document.querySelector('.home-search-results')
-let searchQuery, response //artisanData;
+let searchQuery;
 
+((artisanData) => {
+  'use strict';
 
-window.addEventListener('beforeunload', (event) => {
-  searchInput.value = '';
-});
+  window.addEventListener('beforeunload', (event) => {
+    searchInput.value = '';
+  });
 
-function fetchAndSearch() {
+  function decideAndSearch() {
 
-  ['focus', 'blur', 'keyup', 'input'].forEach(event => searchInput.addEventListener(event, doSomething));
+    ['focus', 'blur', 'keyup', 'input'].forEach(event => searchInput.addEventListener(event, doSomething));
 
-  function doSomething(e) {
-    let happening = e.type;
+    function doSomething(e) {
+      let happening = e.type;
 
-    switch (happening) {
-      case 'focus':
-      resultsList.classList.add('home-search-results-active');
-      break;
+      switch (happening) {
+        case 'focus':
+        resultsList.classList.add('home-search-results-active');
+        break;
 
-      case 'blur':
-        resultsList.classList.remove('home-search-results-active');
-        setTimeout(() => {
-          searchInput.value = '';
-          resultsList.innerHTML = '';              
-        }, 1000);
-      break;
+        case 'blur':
+          resultsList.classList.remove('home-search-results-active');
+          setTimeout(() => {
+            searchInput.value = '';
+            resultsList.innerHTML = '';              
+          }, 1000);
+        break;
 
-      case 'keyup':
-        searchQuery = searchInput.value.toLowerCase();
-        resultsList.innerHTML = '';
+        case 'keyup':
+          searchQuery = searchInput.value.toLowerCase();
+          resultsList.innerHTML = '';
 
-        // https://stackoverflow.com/questions/69917128/how-to-search-a-json-file-from-a-search-bar-in-html
-        for (let i = 0; i < artisanData.length; i++) {
-          let obj = artisanData[i];
+          // https://stackoverflow.com/questions/69917128/how-to-search-a-json-file-from-a-search-bar-in-html
+          for (let i = 0; i < artisanData.length; i++) {
+            let obj = artisanData[i];
 
-          // send the results to the displayResults function to display them
-          if (obj.name.toLowerCase().includes(searchQuery) || obj.city.toLowerCase().includes(searchQuery)) {
-            displayResults(obj);
+            // send the results to the displayResults function to display them
+            if (obj.name.toLowerCase().includes(searchQuery) || obj.city.toLowerCase().includes(searchQuery)) {
+              displayResults(obj);
+            };
           };
-        };
-      break;
+        break;
 
-      case 'input':
-        if (searchInput.value.length == 0) {
-        resultsList.innerHTML = '';          
-        };
-      break;
-    
-      default:
-      break;
-    }; //end switch
-  }; // end doSomething()
-}; // end fetchAndSearch
+        case 'input':
+          if (searchInput.value.length == 0) {
+          resultsList.innerHTML = '';          
+          };
+        break;
+      
+        default:
+        break;
+      }; //end switch
+    }; // end doSomething()
+  }; // end decideAndSearch
 
-fetchAndSearch();
+  decideAndSearch();
 
-function displayResults(results) {
-  let link = document.createElement('a');
-  link.setAttribute('href', `/${results.artisanType}/${results.selector}/`);
-  link.className = `home-search-results-link`;
-  link.innerHTML = `${results.name} - ${results.city}`;
-  resultsList.appendChild(link);
-};
+  function displayResults(results) {
+    let link = document.createElement('a');
+    link.setAttribute('href', `/${results.artisanType}/${results.selector}/`);
+    link.className = `home-search-results-link`;
+    link.innerHTML = `${results.name} - ${results.city}`;
+    resultsList.appendChild(link);
+  }; // end displayResults
+
+})(myData);

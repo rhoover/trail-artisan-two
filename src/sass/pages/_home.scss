@@ -53,8 +53,6 @@
     border-radius: 8px;
     background: core.mycolorfunction(white, base);
     overflow-y: scroll;
-    margin: 0 auto;
-    text-align: center;
     &-active {
       opacity: 1;
       visibility: visible;
