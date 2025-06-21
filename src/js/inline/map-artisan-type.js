@@ -16,7 +16,7 @@ function initMap() {
 
     // initial needed stuff for Google
     let map, marker, i;
-    let infoWindow = new google.maps.InfoWindow({});
+    // let infoWindow = new google.maps.InfoWindow({});
     let markers = [];
     const mapTarget = document.querySelector('#map');
     const mapOptions = {
@@ -107,6 +107,8 @@ function initMap() {
     }; // end mapOptions
       
     map = new google.maps.Map(mapTarget, mapOptions);
+    // initialize marker popup thing and variables
+    let infowindow = new google.maps.InfoWindow({});
 
     // loop through all the artisans...
     for(i = 0; i < artisans.length; i++) {
