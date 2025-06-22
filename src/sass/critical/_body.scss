@@ -15,8 +15,8 @@ body {
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
   color: core.mycolorfunction(black, dark25);
-  // this is here so I can change it with JS if the body height is less than the window height
-  --pseudo-color: blue;
+  min-height: 105vh;
+  --pseudo-color: rgba(0,0,250,0.5);
 }
 
 a {
