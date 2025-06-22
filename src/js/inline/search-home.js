@@ -1,11 +1,12 @@
 import myData from '/all-artisan-data/all-artisan-data.json' with {type: 'json'};
 
-let searchInput = document.getElementById('searchbox');
-let resultsList = document.querySelector('.home-search-results')
-let searchQuery;
 
 ((artisanData) => {
   'use strict';
+
+  let searchInput = document.getElementById('searchbox');
+  let resultsList = document.querySelector('.home-search-results')
+  let searchQuery;
 
   window.addEventListener('beforeunload', (event) => {
     searchInput.value = '';
