@@ -202,7 +202,7 @@ function initMap() {
 
       // Append the control to the DIV.
       centerListDiv.appendChild(centerControl);
-      map.controls[google.maps.ControlPosition.LEFT_TOP].push(centerListDiv);
+      map.controls[google.maps.ControlPosition.LEFT_CENTER].push(centerListDiv);
 
       // inner for...loop to go through each regional array
       for (let j = 0; j < bigArray[i].length; j++) {
