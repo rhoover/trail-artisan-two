@@ -10,17 +10,17 @@
     let navMenu = document.querySelector('.nav');
     let nacClose = document.querySelector('.nav-close');
     
-    let accordianMenu = document.querySelector('.nav-item-content');
-    let accordianIcon = document.querySelector('.nav-item-icon');
+    // let accordianMenu = document.querySelector('.nav-item-content');
+    // let accordianIcon = document.querySelector('.nav-item-icon');
 
     menuButton.addEventListener('click', toggleMenuClasses);
     function toggleMenuClasses() {
 
       // first tackle the fly-out accordian menu
-      if (accordianMenu.classList.contains("nav-item-content-active")) {
-        accordianMenu.classList.remove("nav-item-content-active");
-        accordianIcon.classList.remove('nav-item-icon-toggled');
-      };
+      // if (accordianMenu.classList.contains("nav-item-content-active")) {
+      //   accordianMenu.classList.remove("nav-item-content-active");
+      //   accordianIcon.classList.remove('nav-item-icon-toggled');
+      // };
 
       navMenu.classList.toggle('nav-open');
 
@@ -41,10 +41,10 @@
     function toggleCloseClasses() {
 
       // first tackle the fly-out accordian menu
-      if (accordianMenu.classList.contains("nav-item-content-active")) {
-        accordianMenu.classList.remove("nav-item-content-active");
-        accordianIcon.classList.remove('nav-item-icon-toggled');
-      };
+      // if (accordianMenu.classList.contains("nav-item-content-active")) {
+      //   accordianMenu.classList.remove("nav-item-content-active");
+      //   accordianIcon.classList.remove('nav-item-icon-toggled');
+      // };
 
       navMenu.classList.toggle('nav-open');
     
