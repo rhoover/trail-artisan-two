@@ -73,6 +73,7 @@
   &-list-item {
     @extend %artisans-item;
     @extend %animate-helper;
+    position: relative;
     transition-property: transform, opacity;
     align-self: flex-start;
     &-logo {
@@ -80,7 +81,8 @@
     }
     &-name {
       @extend %artisans-item-name;
-      font-size: var(--step-0);
+      // font-size: var(--step-0);
+      font-size: 1.7rem;
       // have to do this for this list because the item div contians the extra checkmark that the regular list does not
       @include helpers.tablet-breakpoint {
         font-size: 1.2rem;
@@ -111,10 +113,9 @@
       }
     }
     &-check {
-      grid-row: 1 / 3;
-      grid-column: 3 / 4;
-      justify-self: flex-end;
-      align-self: center;
+      position: absolute;
+      right: 0px;
+      top: 10px;
       opacity: 0;
       font-size: calc(var(--step-2) * 3);
       color: core.mycolorfunction(green, base);
