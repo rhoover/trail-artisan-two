@@ -1552,6 +1552,25 @@
         "googleplus":"",
         "instagram":"https://www.instagram.com/thetropicbrewing/",
         "advocate": "https://www.beeradvocate.com/beer/profile/68080/"
+    },
+    {
+        "name": "Twisted Horn Brewery",
+        "address": "3714 VT Route 11",
+        "city": "Londonderry",
+        "state": "VT",
+        "zip": "05148",
+        "latitude": 43.214871610069196,
+        "longitude":  -72.78964274512298,
+        "logo100": "/img/artisans-logos/brewers/logo100/tropic.png",
+        "logo200": "/img/artisans-logos/brewers/logo200/tropic.png",
+        "selector": "twistedhorn",
+        "url":"",
+        "phone":"",
+        "facebook":"https://www.facebook.com/p/Twisted-Horn-Brewery-61569474572603/",
+        "twitter":"",
+        "googleplus":"",
+        "instagram":"https://www.instagram.com/p/DPjrpqfEUyK/",
+        "advocate": ""
     }
   ]
 
