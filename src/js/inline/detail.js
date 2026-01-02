@@ -159,6 +159,7 @@
         dailyWeatherObj['icon'] = daily[i].weather[0].icon;
         dailyWeatherObj['desc'] = daily[i].weather[0].main;
         dailyWeatherObj['day'] = dayOfWeek[dayNum];
+        dailyWeatherObj['prob'] = daily[i].pop;
         fiveDayForecast.push(dailyWeatherObj);
       };
 
@@ -201,9 +202,16 @@
       function fiveTemps() {
         let temps = "";
         fiveDayForecast.forEach((i) => {
-          temps += `<p>Low: ${i.minTemp + '\u00B0'} Hi: ${i.maxTemp  + '\u00B0'}</p>`;
+          temps += `<p>${i.maxTemp  + '\u00B0'} <br />${i.minTemp + '\u00B0'}</p>`;
         });
         return temps;
+      };
+      function fiveProbabilities() {
+        let probs = "";
+        fiveDayForecast.forEach((i) => {
+          probs += `<p>${Math.trunc(i.prob * 100) + '\u0025'}</p>`;
+        });
+        return probs;
       };
 
       // five-day forecast weather display from data build
@@ -211,9 +219,10 @@
       fivedayContent = `
         <h5 class="detail-panel-weather-fiveday-header">5 Day Forecast</h5>
         <div class="detail-panel-weather-fiveday-days">${fiveDays()}</div>
+        <div class="detail-panel-weather-fiveday-temps">${fiveTemps()}</div>
         <div class="detail-panel-weather-fiveday-icons">${fiveIcons()}</div>
         <div class="detail-panel-weather-fiveday-desc">${fiveDescriptions()}</div>
-        <div class="detail-panel-weather-fiveday-temps">${fiveTemps()}</div>
+        <div class="detail-panel-weather-fiveday-prob">${fiveProbabilities()}</div>
       `;
       fivedayContentTarget.innerHTML = fivedayContent;
 
