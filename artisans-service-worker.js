@@ -1,7 +1,7 @@
 (() => {
     "use strict";
 
-    let cacheName =  'artisansCache-EQxXRUg' ;
+    let cacheName =  'artisansCache-knsaHTi' ;
 
     
   //get the array of urls
