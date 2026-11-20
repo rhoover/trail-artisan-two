@@ -480,26 +480,6 @@
         "region": "south"
     },
     {
-        "name": "Vermont Pub and Brewery",
-        "address": "144 College Street",
-        "city": "Burlington",
-        "state": "VT",
-        "zip": "05401",
-        "latitude": 44.477262,
-        "longitude": -73.214394,
-        "logo100": "/img/artisans-logos/brewers/logo100/vpb.png",
-        "logo200": "/img/artisans-logos/brewers/logo200/vpb.png",
-        "selector": "vpb",
-        "url":"http://www.vermontbrewery.com/",
-        "phone":"802.865.0500",
-        "facebook":"https://www.facebook.com/VermontPubandBrewery",
-        "twitter":"",
-        "googleplus":"",
-        "instagram":"https://www.instagram.com/VTPubandBrew/",
-        "advocate": "https://www.beeradvocate.com/beer/profile/860/",
-        "region":"north-central"
-    },
-    {
         "name": "Zero Gravity Craft Brewery",
         "address": "115 St. Paul Street",
         "city": "Burlington",

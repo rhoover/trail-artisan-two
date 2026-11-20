@@ -6,13 +6,13 @@
     "critical": "sass --style compressed --no-source-map src/sass/critical.scss:src/critical/critical.css",
     "watch:critical": "sass --style compressed --no-source-map --watch src/sass/critical.scss:src/critical/critical.css",
     "watch:eleventy": "rm -rf dist && ELEVENTY_RUN_MODE=serve npx --node-options='--experimental-require-module' @11ty/eleventy --serve",
-    "serve": "run-p watch:eleventy watch:critical",
+    "serve": "npm-run-all --parallel watch:eleventy watch:critical",
     "allartisandata": "node src/bin/all-artisans-data.js",
     "allsprites": "node src/bin/all-artisans-sprites.cjs",
     "serviceworker:create": "node src/_eleventy/utilities/service-worker-create.js",
     "serviceworker:min": "terser artisans-service-worker.js -o artisans-service-worker-min.js",
     "build:start": "rm -rf dist && ELEVENTY_RUN_MODE=build npx --node-options='--experimental-require-module' @11ty/eleventy",
-    "build": "run-s serviceworker:create serviceworker:min build:start"
+    "build": "npm-run-all --sequential serviceworker:create serviceworker:min build:start"
   },
   "type": "module",
   "keywords": [],
@@ -26,9 +26,9 @@
     "eleventy-sass": "^3.0.0-beta.0",
     "html-minifier-terser": "^7.2.0",
     "node-sprite-generator": "^0.10.2",
-    "npm-run-all2": "^8.0.4",
+    "npm-run-all2": "^9.0.4",
     "sass": "^1.83.0",
-    "terser": "^5.37.0",
+    "terser": "^5.51.2",
     "utopia-core-scss": "^1.2.1"
   }
 }

@@ -1,0 +1,67 @@
+// https://utopia.fyi/blog/css-modular-scales/
+// fluid typography, sassified
+
+$fluid-min-width: 320;
+// $fluid-max-width: 1500;
+$fluid-max-width: 1900;
+
+$fluid-min-size: 16;
+// $fluid-max-size: 20;
+$fluid-max-size: 20;
+
+$fluid-min-ratio: 1.22;
+$fluid-max-ratio: 1.33;
+
+///////////////////////////////////////////////
+
+$fluid-screen: 100vw;
+$fluid-bp: calc(
+  ($fluid-screen - (($fluid-min-width / 16) * 1rem)) / (($fluid-max-width / 16) - ($fluid-min-width / 16))
+);
+
+///////////////////////////////////////////////
+
+@media screen and (min-width: 1500px) {
+  :root {
+    $fluid-screen: calc($fluid-max-width * 1px);
+  }
+}
+
+///////////////////////////////////////////////
+
+$fluid-min-scale-0: $fluid-min-ratio;
+$fluid-min-scale-1: calc($fluid-min-scale-0 * $fluid-min-ratio);
+$fluid-min-scale-2: calc($fluid-min-scale-1 * $fluid-min-ratio);
+
+
+$fluid-max-scale-0: $fluid-max-ratio;
+$fluid-max-scale-1: calc($fluid-max-scale-0 * $fluid-max-ratio);
+$fluid-max-scale-2: calc($fluid-max-scale-1 * $fluid-max-ratio);
+
+///////////////////////////////////////////////
+
+$fluid-min-size-0: calc($fluid-min-size / 16);
+$fluid-min-size-1: calc($fluid-min-size * $fluid-min-scale-0 / 16);
+$fluid-min-size-2: calc($fluid-min-size * $fluid-min-scale-1 / 16);
+
+///////////////////////////////////////////////
+
+$fluid-max-size-0: calc($fluid-max-size / 16);
+$fluid-max-size-1: calc($fluid-max-size * $fluid-max-scale-0 / 16);
+$fluid-max-size-2: calc($fluid-max-size * $fluid-max-scale-1 / 16);
+
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+
+$fluid-0: calc(
+  ($fluid-min-size-0 * 1rem) + ($fluid-max-size-0 - $fluid-min-size-0) * $fluid-bp
+);
+
+$fluid-1: calc(
+  ($fluid-min-size-1 * 1rem) + ($fluid-max-size-1 - $fluid-min-size-1) * $fluid-bp
+);
+
+$fluid-2: calc(
+  ($fluid-min-size-2 * 1rem) + ($fluid-max-size-2 - $fluid-min-size-2) * $fluid-bp
+);
